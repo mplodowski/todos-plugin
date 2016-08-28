@@ -4,10 +4,18 @@ Simple backend To-Do List plugin. It allows to create tasks list for each backen
 
 Plugin page: https://octobercms.com/plugin/renatio-todos
 
+> This plugin requires **Stable** version of OctoberCMS.
+
 ## Features
 * Manage lists and tasks
 * Lists of tasks belongs to backend user
-* Reminder email
+* Task reminder email
+
+## Support
+
+Please use [GitHub Issues Page](https://github.com/mplodowski/oc-todos-plugin/issues) to report any issues with plugin.
+
+> Reviews should not be used for getting support, if you need support please use the Plugin support link.
 
 ## Like this plugin?
 If you like this plugin, give this plugin a Like or Make donation with PayPal.
