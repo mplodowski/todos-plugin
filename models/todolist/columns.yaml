@@ -1,0 +1,23 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+
+    name:
+        label: renatio.todos::lang.field.name
+        searchable: true
+        sortable: false
+
+    open_tasks_count:
+        label: renatio.todos::lang.field.open_tasks
+        relation: open_tasks_count
+        valueFrom: count
+        default: 0
+        sortable: false
+
+    created_at:
+        label: renatio.todos::lang.field.created_at
+        type: datetime
+        format: d.m.Y H:i:s
+        sortable: false

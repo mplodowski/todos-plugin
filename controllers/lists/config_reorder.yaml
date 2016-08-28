@@ -1,0 +1,17 @@
+# ===================================
+#  Reorder Behavior Config
+# ===================================
+
+# Reorder Title
+title: renatio.todos::lang.list.reorder
+
+# Attribute name
+nameFrom: name
+
+# Model Class name
+modelClass: Renatio\Todos\Models\TodoList
+
+# Toolbar widget configuration
+toolbar:
+    # Partial for toolbar buttons
+    buttons: reorder_toolbar

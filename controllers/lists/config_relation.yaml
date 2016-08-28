@@ -1,0 +1,29 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+open_tasks:
+    label: renatio.todos::lang.task.name
+    view:
+        list: $/renatio/todos/models/task/open_columns.yaml
+        toolbarPartial: relation_open_tasks_toolbar
+        showSearch: true
+        showSorting: false
+        showCheckboxes: false
+        recordsPerPage: 10
+    manage:
+        form: $/renatio/todos/models/task/fields.yaml
+    emptyMessage: renatio.todos::lang.task.open_empty
+
+completed_tasks:
+    label: renatio.todos::lang.task.name
+    view:
+        list: $/renatio/todos/models/task/completed_columns.yaml
+        toolbarPartial: relation_completed_tasks_toolbar
+        showSearch: true
+        showSorting: true
+        showCheckboxes: false
+        recordsPerPage: 10
+    manage:
+        form: $/renatio/todos/models/task/fields.yaml
+    emptyMessage: renatio.todos::lang.task.completed_empty

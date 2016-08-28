@@ -1,0 +1,27 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: renatio.todos::lang.list.name
+
+# Model Form Field configuration
+form: $/renatio/todos/models/todolist/fields.yaml
+
+# Model Class name
+modelClass: Renatio\Todos\Models\TodoList
+
+# Default redirect location
+defaultRedirect: renatio/todos/lists
+
+# Create page
+create:
+    title: renatio.todos::lang.list.create
+    redirect: renatio/todos/lists/update/:id
+    redirectClose: renatio/todos/lists
+
+# Update page
+update:
+    title: renatio.todos::lang.list.edit
+    redirect: renatio/todos/lists
+    redirectClose: renatio/todos/lists

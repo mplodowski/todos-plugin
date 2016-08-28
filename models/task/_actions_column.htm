@@ -1,0 +1,27 @@
+<?php if ($record->completed_at) : ?>
+
+    <button class="btn btn-sm btn-info oc-icon-square-o"
+            data-request="onTaskUncomplete"
+            data-request-data="task_id: '<?= $record->id ?>'"
+            data-stripe-load-indicator="">
+        <?= e(trans('renatio.todos::lang.task.uncomplete')) ?>
+    </button>
+
+<?php else : ?>
+
+    <button class="btn btn-sm btn-success oc-icon-check-square-o"
+            data-request="onTaskComplete"
+            data-request-data="task_id: '<?= $record->id ?>'"
+            data-stripe-load-indicator="">
+        <?= e(trans('renatio.todos::lang.task.complete')) ?>
+    </button>
+
+<?php endif; ?>
+
+<button class="btn btn-sm btn-danger oc-icon-trash-o"
+        data-request="onTaskDelete"
+        data-request-data="task_id: '<?= $record->id ?>'"
+        data-request-confirm="<?= e(trans('backend::lang.relation.delete_confirm')) ?>"
+        data-stripe-load-indicator="">
+    <?= e(trans('backend::lang.relation.delete')) ?>
+</button>

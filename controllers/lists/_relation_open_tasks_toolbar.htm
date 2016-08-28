@@ -1,0 +1,23 @@
+<div class="layout-cell toolbar-item">
+    <div data-control="toolbar" data-disposable="">
+
+        <a data-control="popup"
+           data-size="huge"
+           data-handler="onRelationButtonCreate"
+           href="javascript:;"
+           class="btn btn-sm btn-primary oc-icon-check-square-o">
+            <?= e(trans('renatio.todos::lang.task.create')) ?>
+        </a>
+
+        <?php if($this->action == 'update') : ?>
+
+            <a href="<?= Backend::url('renatio/todos/tasks/reorder/' . $formModel->id) ?>"
+               class="btn btn-sm btn-default oc-icon-bars">
+                <?= e(trans('renatio.todos::lang.task.reorder')) ?>
+            </a>
+
+        <?php endif; ?>
+
+    </div>
+
+</div>

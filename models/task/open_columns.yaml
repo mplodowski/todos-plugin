@@ -1,0 +1,38 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+
+    name:
+        label: renatio.todos::lang.field.name
+        searchable: true
+        sortable: false
+        width: 35%
+
+    priority:
+        label: renatio.todos::lang.field.priority
+        type: partial
+        path: $/renatio/todos/models/task/_priority_column.htm
+        sortable: false
+        width: 15%
+
+    due_at:
+        label: renatio.todos::lang.column.due_at
+        type: timetense
+        sortable: false
+        width: 15%
+
+    reminder_at:
+        label: renatio.todos::lang.column.reminder_at
+        type: timetense
+        sortable: false
+        width: 15%
+
+    actions:
+        label: renatio.todos::lang.field.actions
+        type: partial
+        path: $/renatio/todos/models/task/_actions_column.htm
+        sortable: false
+        clickable: false
+        width: 30%

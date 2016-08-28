@@ -1,0 +1,29 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    name:
+        label: renatio.todos::lang.field.name
+        span: left
+
+    open_section:
+        label: renatio.todos::lang.field.open_tasks
+        type: section
+        context: update
+
+    open_tasks:
+        type: partial
+        path: field_open_tasks
+        context: update
+
+    completed_section:
+        label: renatio.todos::lang.field.completed_tasks
+        type: section
+        context: update
+
+    completed_tasks:
+        type: partial
+        path: field_completed_tasks
+        context: update

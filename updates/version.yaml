@@ -1,0 +1,4 @@
+1.0.1:
+    - First version of Todos plugin.
+    - create_lists_table.php
+    - create_tasks_table.php
