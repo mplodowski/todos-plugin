@@ -5,10 +5,6 @@ namespace Renatio\Todos\Updates;
 use October\Rain\Database\Updates\Migration;
 use Schema;
 
-/**
- * Class CreateListsTable
- * @package Renatio\Todos\Updates
- */
 class CreateListsTable extends Migration
 {
 
