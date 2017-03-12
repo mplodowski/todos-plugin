@@ -59,12 +59,6 @@ class TodoList extends Model
             'scope' => 'open',
             'delete' => true,
         ],
-        'open_tasks_count' => [
-            Task::class,
-            'count' => 'true',
-            'key' => 'list_id',
-            'conditions' => 'completed_at is null',
-        ],
     ];
 
     /**

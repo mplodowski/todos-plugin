@@ -89,6 +89,7 @@ class Lists extends Controller
     public function listExtendQuery($query)
     {
         return $query->forCurrentUser()
+            ->with('open_tasks')
             ->orderBy('sort_order', 'desc');
     }
 

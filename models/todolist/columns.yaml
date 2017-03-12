@@ -11,9 +11,8 @@ columns:
 
     open_tasks_count:
         label: renatio.todos::lang.field.open_tasks
-        relation: open_tasks_count
-        valueFrom: count
-        default: 0
+        type: partial
+        path: $/renatio/todos/models/todolist/_open_tasks_count_column.htm
         sortable: false
 
     created_at:
