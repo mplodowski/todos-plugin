@@ -29,7 +29,7 @@ class TodoListTest extends TestCase
         $list = factory(TodoList::class)->make();
 
         $this->assertArrayHasKey('name', $list->rules);
-        $this->assertEquals('required|max:255', $list->rules['name']);
+        $this->assertEquals('required', $list->rules['name']);
     }
 
     /** @test */
@@ -55,9 +55,11 @@ class TodoListTest extends TestCase
     }
 
     /** @test */
-    public function it_has_many_open_tasks_count()
+    public function it_has_open_tasks_count_attribute()
     {
-        $this->assertHasMany('open_tasks_count', Task::class);
+        $list = factory(TodoList::class)->make();
+
+        $this->assertEquals(0, $list->open_tasks_count);
     }
 
     /** @test */
@@ -86,7 +88,7 @@ class TodoListTest extends TestCase
     {
         $list = factory(TodoList::class)->create();
 
-        $this->assertEquals('http://localhost/backend/renatio/todos/lists/update/1', $list->url);
+        $this->assertEquals('http://oc-todo-list.app/backend/renatio/todos/lists/update/1', $list->url);
     }
 
     /**

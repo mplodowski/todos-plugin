@@ -28,16 +28,7 @@ class TaskTest extends TestCase
         $list = factory(Task::class)->make();
 
         $this->assertArrayHasKey('name', $list->rules);
-        $this->assertEquals('required|max:255', $list->rules['name']);
-    }
-
-    /** @test */
-    public function it_validates_description()
-    {
-        $list = factory(Task::class)->make();
-
-        $this->assertArrayHasKey('description', $list->rules);
-        $this->assertEquals('max:255', $list->rules['description']);
+        $this->assertEquals('required', $list->rules['name']);
     }
 
     /** @test */
@@ -79,12 +70,12 @@ class TaskTest extends TestCase
     }
 
     /** @test */
-    public function it_can_be_uncompleted()
+    public function it_can_be_reopened()
     {
         $task = factory(Task::class)->create();
         $task->complete();
 
-        $task->uncomplete();
+        $task->reopen();
 
         $this->assertNull($task->completed_at);
     }
@@ -106,7 +97,7 @@ class TaskTest extends TestCase
 
         $tasks->first()->complete();
 
-        $this->assertEquals(1, Task::open()->count());
+        $this->assertEquals(1, Task::uncompleted()->count());
     }
 
     /** @test */

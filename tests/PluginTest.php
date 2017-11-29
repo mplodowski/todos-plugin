@@ -2,7 +2,7 @@
 
 namespace Renatio\Todos\Tests;
 
-use App;
+use Illuminate\Support\Facades\App;
 use PluginTestCase;
 use Renatio\Todos\Plugin;
 

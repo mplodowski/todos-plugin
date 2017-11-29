@@ -38,9 +38,9 @@ class TasksController extends ControllerBehavior
      * @param $listId
      * @return mixed
      */
-    public function onTaskOpen($listId)
+    public function onTaskReopen($listId)
     {
-        Task::findOrFail(post('task_id'))->open();
+        Task::findOrFail(post('task_id'))->reopen();
 
         return $this->refreshRelations($listId);
     }

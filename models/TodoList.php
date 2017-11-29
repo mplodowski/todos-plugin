@@ -56,7 +56,7 @@ class TodoList extends Model
         'open_tasks' => [
             Task::class,
             'key' => 'list_id',
-            'scope' => 'open',
+            'scope' => 'uncompleted',
             'delete' => true,
         ],
     ];

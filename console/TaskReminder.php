@@ -55,7 +55,7 @@ class TaskReminder extends Command
     {
         return Task::with('list.user')
             ->where('reminder_at', Carbon::now()->format('Y-m-d H:i'))
-            ->open()
+            ->uncompleted()
             ->get();
     }
 

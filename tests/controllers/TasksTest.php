@@ -19,8 +19,9 @@ class TasksTest extends ControllerTestCase
 
         $task = factory(Task::class)->create(['list' => $list]);
 
-        $this->visit('backend/renatio/todos/tasks/reorder/' . $list->id)
-            ->see($task->name);
+        $response = $this->get('backend/renatio/todos/tasks/reorder/' . $list->id);
+
+        $response->assertSee($task->name);
     }
 
 }

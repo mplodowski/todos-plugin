@@ -45,7 +45,7 @@ class Tasks extends Controller
 
         $list = TodoList::forCurrentUser()->findOrFail($listId);
 
-        return $query->where('list_id', $list->id)->open();
+        return $query->where('list_id', $list->id)->uncompleted();
     }
 
 }

@@ -27,7 +27,7 @@ class TasksControllerTest extends TestCase
     {
         parent::setUp();
 
-        $this->controller = new TaskControllerFake(new Lists);
+        $this->controller = new TasksControllerFake(new Lists);
     }
 
     /** @test */
@@ -48,7 +48,7 @@ class TasksControllerTest extends TestCase
         $this->controller->onTaskComplete($list->id);
 
         $this->assertEquals(1, Task::completed()->count());
-        $this->assertEquals(0, Task::open()->count());
+        $this->assertEquals(0, Task::uncompleted()->count());
     }
 
     /** @test */
@@ -57,9 +57,9 @@ class TasksControllerTest extends TestCase
         $list = $this->prepareTaskList();
         Task::first()->complete();
 
-        $this->controller->onTaskUncomplete($list->id);
+        $this->controller->onTaskReopen($list->id);
 
-        $this->assertEquals(1, Task::open()->count());
+        $this->assertEquals(1, Task::uncompleted()->count());
         $this->assertEquals(0, Task::completed()->count());
     }
 
@@ -78,10 +78,10 @@ class TasksControllerTest extends TestCase
 }
 
 /**
- * Class TaskControllerFake
+ * Class TasksControllerFake
  * @package Renatio\Todos\Tests\Behaviors
  */
-class TaskControllerFake extends TasksController
+class TasksControllerFake extends TasksController
 {
 
     /**

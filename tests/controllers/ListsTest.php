@@ -17,8 +17,9 @@ class ListsTest extends ControllerTestCase
     {
         $list = $this->createListForCurrentUser();
 
-        $this->visit('backend/renatio/todos/lists')
-            ->see($list->name);
+        $response = $this->get('backend/renatio/todos/lists');
+
+        $response->assertSee($list->name);
     }
 
     /** @test */
@@ -26,15 +27,17 @@ class ListsTest extends ControllerTestCase
     {
         $list = factory(TodoList::class)->create();
 
-        $this->visit('backend/renatio/todos/lists')
-            ->dontSee($list->name);
+        $response = $this->get('backend/renatio/todos/lists');
+
+        $response->assertDontSee($list->name);
     }
 
     /** @test */
     public function it_displays_create_list_page()
     {
-        $this->visit('backend/renatio/todos/lists/create')
-            ->seeStatusCode(200);
+        $response = $this->get('backend/renatio/todos/lists/create');
+
+        $response->assertStatus(200);
     }
 
     /** @test */
@@ -42,8 +45,9 @@ class ListsTest extends ControllerTestCase
     {
         $list = $this->createListForCurrentUser();
 
-        $this->visit('backend/renatio/todos/lists/update/' . $list->id)
-            ->seeStatusCode(200);
+        $response = $this->get('backend/renatio/todos/lists/update/' . $list->id);
+
+        $response->assertStatus(200);
     }
 
     /** @test */
@@ -51,8 +55,9 @@ class ListsTest extends ControllerTestCase
     {
         $list = factory(TodoList::class)->create();
 
-        $this->visit('backend/renatio/todos/lists/update/' . $list->id)
-            ->see("Form record with an ID of {$list->id} could not be found.");
+        $response = $this->get('backend/renatio/todos/lists/update/' . $list->id);
+
+        $response->assertSee("Form record with an ID of {$list->id} could not be found.");
     }
 
     /** @test */
@@ -60,8 +65,9 @@ class ListsTest extends ControllerTestCase
     {
         $list = $this->createListForCurrentUser();
 
-        $this->visit('backend/renatio/todos/lists/reorder')
-            ->see($list->name);
+        $response = $this->get('backend/renatio/todos/lists/reorder');
+
+        $response->assertSee($list->name);
     }
 
     /** @test */
@@ -71,8 +77,9 @@ class ListsTest extends ControllerTestCase
 
         $task = factory(Task::class)->create(['list' => $list]);
 
-        $this->visit('backend/renatio/todos/lists/update/' . $list->id)
-            ->see($task->name);
+        $response = $this->get('backend/renatio/todos/lists/update/' . $list->id);
+
+        $response->assertSee($task->name);
     }
 
     /**

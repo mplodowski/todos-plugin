@@ -85,7 +85,7 @@ class Task extends Model
      * @param $query
      * @return mixed
      */
-    public function scopeOpen($query)
+    public function scopeUncompleted($query)
     {
         return $query->whereNull('completed_at')
             ->latest('sort_order');
