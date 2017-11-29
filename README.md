@@ -35,7 +35,7 @@ Plugin will register reminder email template. You can customize it in *Settings 
 
 ## Support
 
-Please use [GitHub Issues Page](https://github.com/mplodowski/oc-todos-plugin/issues) to report any issues with plugin.
+Please use [GitHub Issues Page](https://github.com/mplodowski/todos-plugin/issues) to report any issues with plugin.
 
 > Reviews should not be used for getting support or reporting bugs, if you need support please use the Plugin support link.
 
