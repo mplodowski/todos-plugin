@@ -3,7 +3,7 @@
 return [
     'plugin' => [
         'name' => 'Renatio To-Do List',
-        'description' => 'Simple tasks management plugin.'
+        'description' => 'Simple tasks management plugin.',
     ],
     'navigation' => [
         'todos' => 'To-Do List',
@@ -42,7 +42,7 @@ return [
         'reorder' => 'Reorder tasks',
         'return' => 'Return to the list',
         'complete' => 'Complete',
-        'uncomplete' => 'Reopen',
+        'open' => 'Reopen',
     ],
     'priority' => [
         'highest' => 'Highest',

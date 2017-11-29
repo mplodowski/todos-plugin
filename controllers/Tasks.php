@@ -3,7 +3,7 @@
 namespace Renatio\Todos\Controllers;
 
 use Backend\Classes\Controller;
-use BackendMenu;
+use Backend\Facades\BackendMenu;
 use Renatio\Todos\Models\TodoList;
 
 /**
@@ -41,7 +41,7 @@ class Tasks extends Controller
      */
     public function reorderExtendQuery($query)
     {
-        $listId = request()->segment(6);
+        $listId = $this->params[0];
 
         $list = TodoList::forCurrentUser()->findOrFail($listId);
 

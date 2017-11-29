@@ -23,7 +23,7 @@ trait Completable
     /**
      * @return void
      */
-    public function uncomplete()
+    public function open()
     {
         $this->completed_at = null;
         $this->forceSave();

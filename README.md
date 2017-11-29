@@ -2,46 +2,43 @@
 
 Simple backend To-Do List plugin. It allows to create tasks list for each backend user.
 
-Plugin page: https://octobercms.com/plugin/renatio-todos
-
-> This plugin requires **Stable** version of OctoberCMS.
-
 ## Features
+
 * Manage lists and tasks
 * Lists of tasks belongs to backend user
 * Task reminder email
 
-## Support
+## Installation
 
-Please use [GitHub Issues Page](https://github.com/mplodowski/oc-todos-plugin/issues) to report any issues with plugin.
+There are couple ways to install this plugin.
 
-> Reviews should not be used for getting support, if you need support please use the Plugin support link.
+1. Use October [Marketplace](http://octobercms.com/help/site/marketplace) and __Add to project__ button.
+2. Use October backend area *Settings > System > Updates & Plugins > Install Plugins* and type __Renatio.Todos__.
+3. Use `php artisan plugin:install Renatio.Todos` command.
+4. Use `composer require renatio/todos-plugin` in project root.
 
-## Like this plugin?
-If you like this plugin, give this plugin a Like or Make donation with PayPal.
+## Configuration
 
-# Documentation
-## [Installation](#installation) {#installation}
+Plugin relies on the system scheduler for sending reminder email. For scheduled tasks to operate correctly, you should configure [Cron entry on your server](http://octobercms.com/docs/help/installation#crontab-setup).
 
-In order to install this plugin you have to click on __Add to project__ or type __Renatio.Todos__ in Backend *System > Updates > Install Plugin*
-
-## [Configuration](#configuration) {#configuration}
-This plugin relies on the system schedule process for sending reminder emails. You should ensure that your [cron table is configured correctly](http://octobercms.com/docs/help/installation#crontab-setup) for this plugin to work.
-
-## [Using](#using) {#using}
+## Using
 
 Plugin will register menu item called **To-Do List**, which allow you to manage lists and tasks.
 
 For each task you can set reminder at column. This will send reminder email to user at given time.
 
-Each backend user has his own lists.
+User can see only lists that belongs to him.
 
-## [Mail template](#mail-template) {#mail-template}
+## Mail template
 
-Plugin will register reminder email template. You can customize it in Mail Templates Settings.
+Plugin will register reminder email template. You can customize it in *Settings > Mail Templates*.
 
-If you want to have simple responsive layout for this template than check this path `/plugins/renatio/todos/views/layout` and add it manually.
+## Support
 
-## [License](#license) {#license}
+Please use [GitHub Issues Page](https://github.com/mplodowski/oc-todos-plugin/issues) to report any issues with plugin.
 
-OctoberCMS To-Do List Plugin is open-sourced software licensed under the MIT license.
+> Reviews should not be used for getting support or reporting bugs, if you need support please use the Plugin support link.
+
+## Like this plugin?
+
+If you like this plugin, give this plugin a Like or Make donation with [PayPal](https://www.paypal.me/mplodowski).

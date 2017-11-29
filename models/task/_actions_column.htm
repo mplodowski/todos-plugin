@@ -1,10 +1,10 @@
 <?php if ($record->completed_at) : ?>
 
     <button class="btn btn-sm btn-info oc-icon-square-o"
-            data-request="onTaskUncomplete"
+            data-request="onTaskOpen"
             data-request-data="task_id: '<?= $record->id ?>'"
             data-stripe-load-indicator="">
-        <?= e(trans('renatio.todos::lang.task.uncomplete')) ?>
+        <?= e(trans('renatio.todos::lang.task.open')) ?>
     </button>
 
 <?php else : ?>

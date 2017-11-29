@@ -1,0 +1,18 @@
+{
+  "name": "renatio/todos-plugin",
+  "type": "october-plugin",
+  "description": "Simple backend To-Do list plugin.",
+  "homepage": "https://octobercms.com/plugin/renatio-todos",
+  "keywords": ["octobercms-plugin", "octobercms", "php", "laravel", "todo", "task"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Michal Plodowski",
+      "email": "michal.plodowski@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "composer/installers": "~1.0"
+  }
+}

@@ -1,7 +1,5 @@
-<?php $options = Renatio\Todos\Classes\TaskPriority::options() ?>
-
-<i style="color: <?= Renatio\Todos\Classes\TaskPriority::color($record->priority) ?>;"
-   class="<?= Renatio\Todos\Classes\TaskPriority::icon($record->priority) ?> icon-lg">
+<i style="color: <?= $record->iconColor() ?>;"
+   class="<?= $record->icon() ?> icon-lg">
 </i>
 
-<?= $options[$record->priority] ?>
+<?= $record->priority_value ?>

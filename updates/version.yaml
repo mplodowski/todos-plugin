@@ -6,3 +6,4 @@
     - Change description field to TEXT type
     - alter_description_field_in_tasks_table.php
 1.0.3: Fix MySQL group by query
+2.0.0: !!! Add support for Laravel 5.5.

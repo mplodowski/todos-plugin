@@ -3,15 +3,21 @@
 namespace Renatio\Todos\Updates;
 
 use October\Rain\Database\Updates\Migration;
-use Schema;
+use October\Rain\Support\Facades\Schema;
 
+/**
+ * Class CreateTasksTable
+ * @package Renatio\Todos\Updates
+ */
 class CreateTasksTable extends Migration
 {
 
+    /**
+     * @return void
+     */
     public function up()
     {
         Schema::create('renatio_todos_tasks', function ($table) {
-            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('list_id')->unsigned()->index()->nullable();
             $table->integer('sort_order')->unsigned()->index()->nullable();
@@ -25,6 +31,9 @@ class CreateTasksTable extends Migration
         });
     }
 
+    /**
+     * @return void
+     */
     public function down()
     {
         Schema::dropIfExists('renatio_todos_tasks');

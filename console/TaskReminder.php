@@ -4,7 +4,7 @@ namespace Renatio\Todos\Console;
 
 use Carbon\Carbon;
 use Illuminate\Console\Command;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 use Renatio\Todos\Models\Task;
 
 /**
@@ -22,19 +22,28 @@ class TaskReminder extends Command
     /**
      * @var string
      */
-    protected $description = 'Send reminder email for the task';
+    protected $description = 'Send reminder email for the task.';
 
     /**
      * @return bool
      */
-    public function fire()
+    public function handle()
     {
         foreach ($this->tasks() as $task) {
-            $email = $task->list->user->email;
-            $name = $task->list->user->full_name;
+            $data = [
+                'email' => $task->list->user->email,
+                'username' => $task->list->user->full_name,
+                'task_name' => $task->name,
+                'task_url' => $task->list->url,
+            ];
 
-            Mail::queue('renatio.todos::mail.new_reminder', compact('task'), function ($message) use ($email, $name) {
-                $message->to($email, $name);
+            /*
+             * @todo
+             * Temporary use send() instead of queue()
+             * because of October bug of not setting subject
+             */
+            Mail::send('renatio.todos::mail.new_reminder', $data, function ($message) use ($data) {
+                $message->to($data['email'], $data['username']);
             });
         }
     }

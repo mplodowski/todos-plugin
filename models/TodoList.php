@@ -5,7 +5,7 @@ namespace Renatio\Todos\Models;
 use Backend\Facades\Backend;
 use Backend\Facades\BackendAuth;
 use Backend\Models\User;
-use Model;
+use October\Rain\Database\Model;
 use October\Rain\Database\Traits\Sortable;
 use October\Rain\Database\Traits\Validation;
 
@@ -40,7 +40,7 @@ class TodoList extends Model
      * @var array
      */
     public $rules = [
-        'name' => 'required|max:255',
+        'name' => 'required',
     ];
 
     /**
@@ -75,6 +75,14 @@ class TodoList extends Model
     public function scopeForCurrentUser($query)
     {
         return $query->where('user_id', BackendAuth::getUser()->id);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOpenTasksCountAttribute()
+    {
+        return $this->open_tasks->count();
     }
 
     /**

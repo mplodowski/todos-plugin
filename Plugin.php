@@ -50,7 +50,7 @@ class Plugin extends PluginBase
         return [
             'renatio.todos.access_todos' => [
                 'label' => 'renatio.todos::lang.permissions.access_todos',
-                'tab' => 'renatio.todos::lang.permissions.tab'
+                'tab' => 'renatio.todos::lang.permissions.tab',
             ],
         ];
     }
@@ -61,7 +61,7 @@ class Plugin extends PluginBase
     public function registerMailTemplates()
     {
         return [
-            'renatio.todos::mail.new_reminder' => 'Przypomnienie z Systemu Obserwacji',
+            'renatio.todos::mail.new_reminder' => 'Task reminder email.',
         ];
     }
 

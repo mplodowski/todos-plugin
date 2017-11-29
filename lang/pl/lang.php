@@ -3,7 +3,7 @@
 return [
     'plugin' => [
         'name' => 'Renatio ToDo Lista',
-        'description' => 'Lista zadań do wykonania.'
+        'description' => 'Lista zadań do wykonania.',
     ],
     'navigation' => [
         'todos' => 'ToDo',
@@ -43,7 +43,7 @@ return [
         'reorder' => 'Zmień kolejność',
         'return' => 'Powrót do listy',
         'complete' => 'Zakończ',
-        'uncomplete' => 'Otwórz',
+        'open' => 'Otwórz',
     ],
     'priority' => [
         'highest' => 'Bardzo wysoki',

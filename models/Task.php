@@ -2,10 +2,10 @@
 
 namespace Renatio\Todos\Models;
 
-use Model;
+use October\Rain\Database\Model;
 use October\Rain\Database\Traits\Sortable;
 use October\Rain\Database\Traits\Validation;
-use Renatio\Todos\Classes\TaskPriority;
+use Renatio\Todos\Behaviors\TaskPriority;
 use Renatio\Todos\Traits\Completable;
 use System\Models\File;
 
@@ -28,6 +28,13 @@ class Task extends Model
     /**
      * @var array
      */
+    public $implement = [
+        TaskPriority::class,
+    ];
+
+    /**
+     * @var array
+     */
     protected $fillable = ['name', 'description'];
 
     /**
@@ -35,16 +42,13 @@ class Task extends Model
      */
     public $attributeNames = [
         'name' => 'renatio.todos::lang.field.name',
-        'name' => 'renatio.todos::lang.field.name',
-        'description' => 'renatio.todos::lang.field.description'
     ];
 
     /**
      * @var array
      */
     public $rules = [
-        'name' => 'required|max:255',
-        'description' => 'max:255',
+        'name' => 'required',
     ];
 
     /**
@@ -74,7 +78,7 @@ class Task extends Model
     public function scopeCompleted($query)
     {
         return $query->whereNotNull('completed_at')
-            ->orderBy('completed_at', 'desc');
+            ->latest('completed_at');
     }
 
     /**
@@ -84,15 +88,7 @@ class Task extends Model
     public function scopeOpen($query)
     {
         return $query->whereNull('completed_at')
-            ->orderBy('sort_order', 'desc');
-    }
-
-    /**
-     * @return array
-     */
-    public static function getPriorityOptions()
-    {
-        return TaskPriority::options();
+            ->latest('sort_order');
     }
 
 }

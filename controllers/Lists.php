@@ -3,9 +3,9 @@
 namespace Renatio\Todos\Controllers;
 
 use Backend\Classes\Controller;
-use BackendMenu;
+use Backend\Facades\BackendMenu;
 use October\Rain\Exception\ApplicationException;
-use Renatio\Todos\Behaviors\TaskController;
+use Renatio\Todos\Behaviors\TasksController;
 
 /**
  * Class Lists
@@ -27,7 +27,7 @@ class Lists extends Controller
         'Backend.Behaviors.ListController',
         'Backend.Behaviors.RelationController',
         'Backend.Behaviors.ReorderController',
-        TaskController::class,
+        TasksController::class,
     ];
 
     /**
@@ -53,8 +53,6 @@ class Lists extends Controller
     public function __construct()
     {
         parent::__construct();
-
-        $this->addCss('/plugins/renatio/todos/assets/css/style.css');
 
         BackendMenu::setContext('Renatio.Todos', 'todos', 'lists');
     }
@@ -90,7 +88,7 @@ class Lists extends Controller
     {
         return $query->forCurrentUser()
             ->with('open_tasks')
-            ->orderBy('sort_order', 'desc');
+            ->latest('sort_order');
     }
 
     /**
@@ -109,7 +107,7 @@ class Lists extends Controller
     public function reorderExtendQuery($query)
     {
         return $query->forCurrentUser()
-            ->orderBy('sort_order', 'desc');
+            ->latest('sort_order');
     }
 
 }

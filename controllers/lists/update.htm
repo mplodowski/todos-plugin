@@ -2,28 +2,25 @@
 
     <ul>
         <li>
-            <a href="<?= Backend::url('renatio/todos/lists') ?>"><?= e(trans('renatio.todos::lang.list.label')) ?></a>
+            <a href="<?= Backend::url('renatio/todos/lists') ?>">
+                <?= e(trans('renatio.todos::lang.list.label')) ?>
+            </a>
         </li>
-        <li><?= e( ! empty($formModel->name) ? $formModel->name : trans('renatio.todos::lang.list.edit')) ?></li>
+        <li><?= e($formModel->name) ?></li>
     </ul>
 
 <?php Block::endPut() ?>
 
-<?php if ( ! $this->fatalError): ?>
+<?php if ( ! $this->fatalError) : ?>
 
     <?= Form::open(['class' => 'layout']) ?>
 
-    <div class="layout-row">
-
-        <?= $this->formRender() ?>
-
-    </div>
-
-    <?php if ($this->user->hasAccess('renatio.todos.access_todos_team')) : ?>
+        <div class="layout-row">
+            <?= $this->formRender() ?>
+        </div>
 
         <div class="form-buttons">
             <div class="loading-indicator-container">
-
                 <button type="submit"
                         data-request="onSave"
                         data-request-data="redirect:0"
@@ -54,11 +51,8 @@
                         data-load-indicator="<?= e(trans('backend::lang.form.deleting_name', ['name' => $formRecordName])) ?>"
                         data-request-confirm="<?= e(trans('backend::lang.relation.delete_confirm')) ?>">
                 </button>
-
             </div>
         </div>
-
-    <?php endif; ?>
 
     <?= Form::close() ?>
 
